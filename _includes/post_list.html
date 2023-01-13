@@ -1,0 +1,18 @@
+{% if site.posts.size > 0 %}
+<ul>
+  {% for tag in site.tags %}
+      {% capture tag_name %}{{ tag | first }}{% endcapture %}
+      <li><h3 class="tag-name">{{ tag_name }}</h3></li>
+      <ul>
+        {% for post in site.tags[tag_name] %}
+          <li class="post-list-item">
+            <span class="home-date">
+              {{ post.date | date: site.theme_config.date_format }}»
+            </span>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+  {% endfor %}
+</ul>
+{% endif %}

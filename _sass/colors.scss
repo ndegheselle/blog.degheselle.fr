@@ -1,0 +1,21 @@
+html {
+    --color-primary: #EB5E28;
+    --color-primary-dim: #ff9b54;
+    
+    --color-secondary: #ce4257;
+    --color-secondary-dim: #D8697A;
+
+    --color-bg: #FFFCF2;
+    --color-bg-secondary: #CCC5B9;
+    --color-front: #252422;
+    --color-front-secondary: #403D39;
+}
+// -------------- THEME SWITCHER -------------- //
+@mixin dark-appearance {
+  html, body  {
+    --color-bg: #252422;
+    --color-bg-secondary: #403D39;
+    --color-front: #FFFCF2;
+    --color-front-secondary: #CCC5B9;
+  };
+}
