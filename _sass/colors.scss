@@ -1,21 +1,20 @@
 html {
-    --color-primary: #EB5E28;
-    --color-primary-dim: #ff9b54;
+    --color-primary: #FF5748;
+    --color-primary-dim: #FF8D83;
     
-    --color-secondary: #ce4257;
-    --color-secondary-dim: #D8697A;
-
-    --color-bg: #FFFCF2;
-    --color-bg-secondary: #CCC5B9;
-    --color-front: #252422;
-    --color-front-secondary: #403D39;
+    --color-bg: #EDF2F4;
+    --color-bg-secondary: #C2D3D9;
+    --color-middle: #8D99AE;
+    --color-front-secondary: #4C5075;
+    --color-front: #2B2D42;
 }
 // -------------- THEME SWITCHER -------------- //
 @mixin dark-appearance {
   html, body  {
-    --color-bg: #252422;
-    --color-bg-secondary: #403D39;
-    --color-front: #FFFCF2;
-    --color-front-secondary: #CCC5B9;
+    --color-bg: #2B2D42;
+    --color-bg-secondary: #4C5075;
+    --color-middle: #8D99AE;
+    --color-front-secondary: #C2D3D9;
+    --color-front: #EDF2F4;
   };
 }
