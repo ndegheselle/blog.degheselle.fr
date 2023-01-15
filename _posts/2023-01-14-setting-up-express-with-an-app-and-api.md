@@ -50,7 +50,7 @@ Create the `./.env` file with the following key :
 PORT=8000
 ```
 
-You can already start your server with the cmd `node server.js` and check on (http://localhost:8000)[http://localhost:8000], a page will show up with the message : `Cannot GET /`. It's normal since no content has been setup right now.
+You can already start your server with the cmd `node server.js` and check on [http://localhost:8000](http://localhost:8000), a page will show up with the message : `Cannot GET /`. It's normal since no content has been setup right now.
 
 > You may have the error : `Cannot use import statement outside a module`
 > If that's the case you can simply modify the `./package.json` file to add this :
@@ -108,7 +108,7 @@ Add an html file `./index.html` :
 </html>
 ```
 
-Stop the server with CTRL+C and restart it with `node server.js`, after visiting (http://localhost:8000)[http://localhost:8000] you should see 'Hello world'. You can also visit (http://localhost:8000/api)[http://localhost:8000/api] and see some json.
+Stop the server with CTRL+C and restart it with `node server.js`, after visiting [http://localhost:8000](http://localhost:8000) you should see 'Hello world'. You can also visit [http://localhost:8000/api](http://localhost:8000/api) and see some json.
 
 ## *Optional* : Setup for convenience
 
