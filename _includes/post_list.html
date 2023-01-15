@@ -2,7 +2,7 @@
 <ul>
   {% for tag in site.tags %}
       {% capture tag_name %}{{ tag | first }}{% endcapture %}
-      <li><h3 class="tag-name">{{ tag_name }}</h3></li>
+      <li><h3>{{ tag_name }}</h3></li>
       <ul>
         {% for post in site.tags[tag_name] %}
           <li class="post-list-item">

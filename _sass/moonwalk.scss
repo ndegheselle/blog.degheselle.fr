@@ -51,8 +51,7 @@ div.highlighter-rouge pre code, pre code.highlighter-rouge {
 }
 
 blockquote {
-  font-style: italic;
-  border: thin solid black;
+  border-left: 0.4rem var(--color-middle) solid;
   padding: 1em;
 
   p { margin: 0; }
@@ -87,19 +86,19 @@ h2, h3, h4, h5, h6 {
     color: var(--color-primary);
 }
 
-p, strong, b, em, small, li, hr, table, figcaption {
+hr {
+  color: var(--color-middle);
+}
+
+p, strong, b, em, small, li, table, figcaption {
     color: var(--color-front-secondary);
 }
-.highlight, pre code, blockquote {
+.highlight, pre code {
   border-radius: 0.5em;
   background: var(--color-bg-secondary);
   color: var(--color-front);
 }
 
-blockquote {
-  background-color: var(--color-bg-secondary);
-  border: 1px var(--border) solid;
-}
 a {
   color: var(--color-primary-dim);
 }
@@ -139,7 +138,7 @@ html.transition *:after {
 }
 mark {
   padding: 0.4em;
-  background-color: var(--color-secondary-dim);
+  background-color: var(--color-middle);
   font-size: 0.6em;
   letter-spacing: 1px;
 }
@@ -166,7 +165,6 @@ mark {
 p code, li code {
   background-color: var(--color-bg-secondary);
   padding: 0.2rem;
-  color: var(--color-secondary);
   font-weight: bold;
 }
 .post-title {
@@ -202,20 +200,4 @@ p code, li code {
   font-weight: bold;
   text-transform: lowercase;
   //border: 1px solid var(--color-front-secondary);
-}
-
-.soopr-btn-item-reg svg path
-{
-  color: var(--color-secondary-dim);
-  fill: var(--color-secondary-dim);
-}
-
-.soopr-btn-item-reg svg:hover path
-{
-  fill: var(--color-secondary);
-  color: var(--color-secondary);
-}
-
-.tag-name {
-  color: var(--color-secondary-dim);
 }
