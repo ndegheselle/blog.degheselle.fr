@@ -7,14 +7,14 @@ Linked [github](https://github.com/ndegheselle/lightcloud).
 
 ## Installation
 
-Install [node.js](https://nodejs.org/en/download/). Create a folder for your project and initalize node :
+Install [node.js](https://nodejs.org/en/download/). Create a folder for your project and initialize node :
 ```
 mkdir project-name
 cd project-name
 npm init
 ```
 
-Once the `package.json` file have been created by node you can install express.js, a library used to create api and web servers :
+Once the `package.json` file has been created by node you can install express.js, a library used to create api and web servers :
 ```
 npm install express
 npm install dotenv
@@ -25,7 +25,7 @@ npm install dotenv
 > Having a .env file to store your configuration is a good thing :
 > - Everything is conveniently stocked in one file
 > - You can ignore the .env file on your git and don't have to worry about leaking credentials
-> - It is easy to switch config between developpement and production environement
+> - It is easy to switch config between development and production environment
 
 ## Create base server
 
@@ -50,10 +50,10 @@ Create the `./.env` file with the following key :
 PORT=8000
 ```
 
-You can already start your server with the cmd `node server.js` and check on http://localhost:8080, a page will show up with the message : `Cannot GET /`. It's normal since no content have been setup right now
+You can already start your server with the cmd `node server.js` and check on [](http://localhost:8080), a page will show up with the message : `Cannot GET /`. It's normal since no content has been setup right now.
 
 > You may have the error : `Cannot use import statement outside a module`
-> If that the case you can simply modify the `./package.json` file to add this :
+> If that's the case you can simply modify the `./package.json` file to add this :
 > ```json
 > {
 >    ...
@@ -65,7 +65,7 @@ You can already start your server with the cmd `node server.js` and check on htt
 
 ## Return content
 
-We want two differents routes, one for the app that return HTML and one for the api that return JSON data. To do so in `server.js` add :
+We want two different routes, one for the app that returns HTML and one for the api that returns JSON data. To do so in `server.js` add :
 
 ```js
 import express from 'express'
@@ -112,7 +112,7 @@ Stop the server with CTRL+C and restart it with `node server.js`, after visiting
 
 ## *Optional* : Setup for convenience
 
-Convenient (ease of developpement and debug) but optional steps.
+Convenient (ease of development and debug) but optional steps.
 
 ### Auto reload server and use npm scripts
 
@@ -121,7 +121,7 @@ First install `nodemon ` as a dev dependency :
 npm install nodemon --save-dev
 ```
 
-You can then use `nodemon server.js` to start the server with an auto reload. For convenience you can define scripts in the `./package.json` file :
+You can then use `nodemon server.js` to start the server with an auto reload. For convenience, you can define scripts in the `./package.json` file :
 ```json
 {
   ...
@@ -136,7 +136,7 @@ You can then use `nodemon server.js` to start the server with an auto reload. Fo
 You can then use `npm run start` to start the normal server or `npm run dev` to start the auto reload dev server.
 It's a good idea to use the npm scripts since :
 - If you leave the project you may forget which command are used to start the server
-- If you are using more complexe commands to start the server
+- If you are using more complex commands to start the server
 
 ### Better logging system
 
@@ -164,3 +164,4 @@ const app = express();
 
 Optionals :
 - [Node.js auto reload](https://stackoverflow.com/a/14406029/10404482)
+- [Logging : morgan as an express middleware](https://expressjs.com/en/resources/middleware/morgan.html)
