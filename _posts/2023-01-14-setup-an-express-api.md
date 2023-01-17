@@ -65,7 +65,7 @@ You can already start your server with the cmd `node server.js` and check on [ht
 
 ## Return content
 
-We want two different routes, one for the app that returns HTML and one for the api that returns JSON data. To do so in `server.js` add :
+Add a route inside the `server.js` :
 
 ```js
 import express from 'express'
@@ -79,11 +79,6 @@ dotenv.config();
 
 const app = express();
 
-+ // Return an HTML file
-+ app.get('/', (req, res) => {
-+     res.sendFile(path.join(__dirname, '/index.html'));
-+ });
-+ 
 + // Return JSON data
 + app.get('/api', (req, res) => {
 +     res.status(200).json({msg: "Some API data."});
@@ -94,21 +89,54 @@ const PORT = process.env.PORT || 80;
 app.listen(PORT, console.log(`Running on http://localhost:${PORT}`));
 ```
 
-Add an html file `./index.html` :
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Test</title>
-  </head>
-  <body>
-    Hello world
-  </body>
-</html>
+## Improve routing
+
+In the future there will be a lot of different routes, in order to nicely separate everyting we will put routes in specifics files.
+Create a `./routes/apiRoutes.js` file :
+
+```js
+import express from 'express'
+
+const router = express.Router();
+
+router.route('/').get((req, res) => {
+    res.status(200).json({msg: "Some API data."});
+});
+
+export default function(app) {
+    app.use(`/api/v${process.env.API_VERSION}`, router);
+};
 ```
 
-Stop the server with CTRL+C and restart it with `node server.js`, after visiting [http://localhost:8000](http://localhost:8000) you should see 'Hello world'. You can also visit [http://localhost:8000/api](http://localhost:8000/api) and see some json.
+Add the `API_VERSION=1` key in the `./.env`. 
+
+Then modify the `./server.js` with the following content :
+
+```js
+import express from 'express'
+import dotenv from 'dotenv'
+import morgan from 'morgan'
+
+import createApiRoutes from './routes/apiRoutes.js'
+
+dotenv.config();
+
+const app = express();
+app.use(morgan('tiny'));
+
+createApiRoutes(app);
+
+// Get port from .env and start server
+const PORT = process.env.PORT || 80;
+app.listen(PORT, console.log(`Running on http://localhost:${PORT}`));
+```
+
+You can now go on [http://localhost:8000/api/v1](http://localhost:8000/api/v1) and get the json :
+```json
+{
+  "msg": "Some API data."
+}
+```
 
 ## *Optional* : Setup for convenience
 
@@ -155,13 +183,57 @@ const app = express();
 ...
 ```
 
+### Manage API errors and 404
+
+In order to simplify debuging of the API you can add middlewares that will handles errors and 404. Create a `./middlewares` folder, with the following file :
+
+```
+./middlewares
+    apiErrorMiddleware.js
+```
+
+Inside the file `./middlewares/apiErrorMiddleware.js` :
+
+```js
+const apiNotFound = (req, res, next) => {
+    const error = new Error(`Not Found - ${req.originalUrl}`)
+    res.status(404)
+    next(error)
+}
+
+const apiErrorHandler = (err, req, res, next) => {
+    const statusCode = res.statusCode === 200 ? 500 : res.statusCode
+    res.status(statusCode)
+    res.json({
+        message: err.message,
+        stack: process.env.NODE_ENV === 'production' ? null : err.stack,
+    })
+}
+
+export { apiNotFound, apiErrorHandler }
+```
+
+Add the `NODE_ENV=dev` key in the `./.env`.
+
+And then in `./routes/apiRoutes.js` add :
+
+```js
+export default function(app) {
+    app.use(`/api/v${process.env.API_VERSION}`, router);
++    app.use('/api', apiNotFound);
++    app.use('/api', apiErrorHandler);
+};
+```
+
+You will now have JSON returned during errors and 404 instead of an HTML page.
+
 ## Links and sources
 
 - [Base express js setup](https://expressjs.com/en/starter/hello-world.html)
 - [Fix : Cannot use import statement outside a module](https://stackoverflow.com/a/59399717/10404482)
 - [Return JSON with express](https://stackoverflow.com/a/19696261/10404482)
-- [How To Deliver HTML Files with Express](https://www.digitalocean.com/community/tutorials/use-expressjs-to-deliver-html-files)
 
 Optionals :
+- [Express middlewares](https://expressjs.com/en/guide/using-middleware.html)
 - [Node.js auto reload](https://stackoverflow.com/a/14406029/10404482)
 - [Logging : morgan as an express middleware](https://expressjs.com/en/resources/middleware/morgan.html)
