@@ -89,6 +89,8 @@ const PORT = process.env.PORT || 80;
 app.listen(PORT, console.log(`Running on http://localhost:${PORT}`));
 ```
 
+If you check on [http://localhost:8000/api](http://localhost:8000/api) you can see that JSON data is returned.
+
 ## Improve routing
 
 In the future there will be a lot of different routes, in order to nicely separate everyting we will put routes in specifics files.
