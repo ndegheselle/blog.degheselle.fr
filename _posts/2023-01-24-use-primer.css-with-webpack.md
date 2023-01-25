@@ -5,7 +5,7 @@ tags: Node.js
 
 [Primer.css](https://primer.style/css/) is the CSS library (and more) created by github. It is complete, with a lot of differents components and I really like how it looks :)
 
-It also have the advantage of being used and maintained by a large company, which mean it will most likely not be abandoned easily.
+It also has the advantage of being used and maintained by a large company, which mean it will most likely not be abandoned easily.
 
 ## Create the base
 
@@ -37,15 +37,15 @@ Inside the `./dist/index.html` file you can set an HTML base :
 </html>
 ```
 
-Inside the `./src/main.js` file add an import to the style file (that's how webpack work) :
+Inside the `./src/main.js` file add an import to the style file (in order for webpack to find the style file) :
 
 ```js
 import "../scss/styles.scss"
 ```
 
-> You may need to enable [ECMAScript modules](https://nodejs.org/api/esm.html) to use the import syntaxe.
+> You may need to enable [ECMAScript modules](https://nodejs.org/api/esm.html) to use the import syntax.
 
-You can then create this base `./webpack.config.js` file :
+You can then create this base file `./webpack.config.js` :
 ```js
 import path from 'node:path'
 import { fileURLToPath } from 'url'
@@ -76,7 +76,7 @@ export default {
 }
 ```
 
-For webpack to work you have to install the following packages :
+For webpack you have to install the following packages :
 
 ```
 npm i css-loader mini-css-extract-plugin sass sass-loader webpack webpack-cli
@@ -100,7 +100,7 @@ To import the syles you can simply add an import in `./src/scss/styles.scss` :
 @import "@primer/css/index.scss";
 ```
 
-Or import modules by modules, with the minimum begin theses ones :
+Or import modules by modules, with the minimum being theses ones :
 
 ```scss
 @import '@primer/css/color-modes/index.scss';
@@ -110,7 +110,7 @@ Or import modules by modules, with the minimum begin theses ones :
 
 If you use the `webpack` command right now you will probably run into errors linked to [this github issue](https://github.com/primer/css/issues/722).
 
-To fix this you can download the differents files like in [this answer](https://github.com/primer/css/issues/722#issuecomment-636271979), you will have to download these files and places them in the `./dist` folder :
+To fix this you can download the differents files like in [this answer](https://github.com/primer/css/issues/722#issuecomment-636271979), you will have to places them in the `./dist` folder :
 
 ```
 https://github.com/images/spinners/octocat-spinner-16px.gif
@@ -137,7 +137,7 @@ You will have the following folders and files :
         error.png
 ```
 
-Then you have to add some config inside the `./webpack.config.js` file in order for 'css-loader' to ignore the url that pose problems inside Primer.css :
+Then you have to add some config inside the `./webpack.config.js` file in order for 'css-loader' to ignore the url that poses problems inside Primer.css :
 
 ```js
 ...
@@ -157,7 +157,7 @@ Then you have to add some config inside the `./webpack.config.js` file in order 
 ...
 ```
 
-This should do the trick, now then you run `webpack` you will build without errors. For exemple you can try to add a Box in the `./dist/index.html` file :
+This should do the trick, now then you run `webpack` you will build without errors. For example you can try to add a Box in the `./dist/index.html` file :
 
 ```html
 <div class="Box">
@@ -175,14 +175,14 @@ This should do the trick, now then you run `webpack` you will build without erro
 </div>
 ```
 
-> If you are importing module by module you have to import box to use it : 
+> If you are importing module by module, you have to import box to use it : 
 > ```scss
 > @import "@primer/css/box/index.scss";
 > ```
 
 ## *Optionnal* : purge CSS
 
-Primer.css is quite big (webpack is even warning you : `WARNING in entrypoint size limit`), it weight around 800KiB. In production you will have to gzip this (that will make it down to 70KiB), you can also use other solution like PurgeCSS that will remove all the part of the library that you doesn't use.
+Primer.css is quite big (webpack is even warning you : `WARNING in entrypoint size limit`), its weight around 800KiB. In production you will have to gzip this (that will make it down to 70KiB), you can also use other solution like PurgeCSS that will remove all the part of the library that you don't use.
 
 First install the necessary packages :
 
@@ -263,7 +263,7 @@ new PurgeCSSPlugin({
 
 ## *Optionnal* : separate dev and prod
 
-PurgeCSS can be quite long to process, so you may want to desactivate it in developpement and keep it only in production. To do that you can use multiples `webpack` files. Create theses files :
+PurgeCSS can be quite long to process, so you may want to deactivate it in development and keep it only in production. To do that you can use multiple `webpack` files. Create theses files :
 
 webpack.common.js
 ```js
@@ -306,7 +306,7 @@ export default {
 };
 ```
 
-You can also use a developement server in developpement with the package `npm i webpack-dev-server`.
+You can also use a development server in development with the package `npm i webpack-dev-server`.
 webpack.dev.js
 ```js
 import { merge } from 'webpack-merge'
