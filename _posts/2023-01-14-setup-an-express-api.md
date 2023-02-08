@@ -1,6 +1,6 @@
 ---
 layout: post
-tags: Node.js
+tags: node.js
 ---
 
 Linked [github](https://github.com/ndegheselle/lightcloud).

@@ -1,6 +1,6 @@
 ---
 layout: post
-tags: Node.js
+tags: node.js
 ---
 
 [Primer.css](https://primer.style/css/) is the CSS library (and more) created by github. It is complete, with a lot of differents components and I really like how it looks :)
