@@ -38,16 +38,17 @@ li { margin: 0.4em 0; }
 }
 
 table {
-  width: 100%;
-  padding: 0.4em;
   background-color: var(--color-bg-secondary);
   border-radius: 0.5rem;
   table-layout: fixed;
 }
 
-th, td {
+table, th, td {
   width: 100%;
+  border: thin solid black;
   border-collapse: collapse;
+  padding: 0.4em;
+
   border-bottom: thin solid var(--color-bg);
   border-right: thin solid var(--color-bg);
 }
@@ -62,7 +63,10 @@ blockquote {
   border-left: 0.4rem var(--color-middle) solid;
   padding: 1em;
 
-  p { margin: 0; }
+  p { 
+    margin: 0;
+    color: var(--color-middle)
+  }
 }
 
 img {
