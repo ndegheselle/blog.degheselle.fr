@@ -37,11 +37,19 @@ li { margin: 0.4em 0; }
   padding: 4em 2em;
 }
 
-table, th, td {
+table {
   width: 100%;
-  border: thin solid black;
-  border-collapse: collapse;
   padding: 0.4em;
+  background-color: var(--color-bg-secondary);
+  border-radius: 0.5rem;
+  table-layout: fixed;
+}
+
+th, td {
+  width: 100%;
+  border-collapse: collapse;
+  border-bottom: thin solid var(--color-bg);
+  border-right: thin solid var(--color-bg);
 }
 
 div.highlighter-rouge pre code, pre code.highlighter-rouge {
