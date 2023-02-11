@@ -7,6 +7,9 @@ tags: node.js
 
 It also has the advantage of being used and maintained by a large company, which mean it will most likely not be abandoned easily.
 
+* TOC
+{:toc}
+
 ## Create the base
 
 Create a base node project with `npm init project`. You can then create the following folders and files :

@@ -5,6 +5,9 @@ tags: web
 
 Trying to summarize website weight, in terme of what is effectively downloaded by the client. Performances caused by the Javascript or even the CSS is another matter that I wont talk about.
 
+* TOC
+{:toc}
+
 ## Why is it important
 
 Well, the lighter the better but why ?

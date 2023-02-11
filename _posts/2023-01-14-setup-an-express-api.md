@@ -3,8 +3,6 @@ layout: post
 tags: node.js
 ---
 
-Linked [github](https://github.com/ndegheselle/lightcloud).
-
 * TOC
 {:toc}
 
