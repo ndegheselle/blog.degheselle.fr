@@ -207,7 +207,7 @@ import { PurgeCSSPlugin }  from 'purgecss-webpack-plugin'
 ...
 ```
 
-It's as simple as that, for the small HTML example we have the CSS file generated is 30KiB instead of the 800 for the same visual result !
+It's as simple as that, for the small HTML example we have the CSS file generated is 30KiB instead of the 800KiB for the same visual result !
 
 ### With Vue.js
 
@@ -250,7 +250,7 @@ import {VueLoaderPlugin} from 'vue-loader'
 ...
 ```
 
-You can then update the config of PurgeCSS to accept vue file :
+You can then update the config of PurgeCSS to accept vue files :
 
 ```js
 ...
@@ -265,7 +265,7 @@ new PurgeCSSPlugin({
 
 PurgeCSS can be quite long to process, so you may want to deactivate it in development and keep it only in production. To do that you can use multiple `webpack` files. Create theses files :
 
-webpack.common.js
+webpack.common.js :
 ```js
 import path from 'node:path'
 import { fileURLToPath } from 'url'
@@ -307,7 +307,7 @@ export default {
 ```
 
 You can also use a development server in development with the package `npm i webpack-dev-server`.
-webpack.dev.js
+webpack.dev.js :
 ```js
 import { merge } from 'webpack-merge'
 import common from'./webpack.common.js'
@@ -323,7 +323,7 @@ export default merge(common, {
 });
 ```
 
-And webpack.prod.js
+And webpack.prod.js :
 ```js
 import { merge } from 'webpack-merge'
 import common from'./webpack.common.js'

@@ -5,6 +5,11 @@ tags: node.js
 
 Linked [github](https://github.com/ndegheselle/lightcloud).
 
+* TOC
+{:toc}
+
+A short tutorial on how to install an express server with some optional configuration to make developement easier.
+
 ## Installation
 
 Install [node.js](https://nodejs.org/en/download/). Create a folder for your project and initialize node :
@@ -52,20 +57,11 @@ PORT=8000
 
 You can already start your server with the cmd `node server.js` and check on [http://localhost:8000](http://localhost:8000), a page will show up with the message : `Cannot GET /`. It's normal since no content has been setup right now.
 
-> You may have the error : `Cannot use import statement outside a module`
-> If that's the case you can simply modify the `./package.json` file to add this :
-> ```json
-> {
->    ...
->    "type": "module"
->    ...
-> }
-> ```
-> You don't have to use the ES module, I personnaly prefer them to the require() syntax.
+> You may have the error : `Cannot use import statement outside a module`. The solution can be found [here](https://stackoverflow.com/a/59399717/10404482).
 
 ## Return content
 
-Add a route inside the `server.js` :
+Now we need to add endpoint to the api that will return content. Add a route inside the `server.js` :
 
 ```js
 import express from 'express'
@@ -93,7 +89,7 @@ If you check on [http://localhost:8000/api](http://localhost:8000/api) you can s
 
 ## Improve routing
 
-In the future there will be a lot of different routes, in order to nicely separate everyting we will put routes in specifics files.
+In the future there will be a lot of different routes, in order to nicely separate everything we will put routes in specifics files.
 Create a `./routes/apiRoutes.js` file :
 
 ```js
@@ -134,6 +130,7 @@ app.listen(PORT, console.log(`Running on http://localhost:${PORT}`));
 ```
 
 You can now go on [http://localhost:8000/api/v1](http://localhost:8000/api/v1) and get the json :
+
 ```json
 {
   "msg": "Some API data."
@@ -142,16 +139,18 @@ You can now go on [http://localhost:8000/api/v1](http://localhost:8000/api/v1) a
 
 ## *Optional* : Setup for convenience
 
-Convenient (ease of development and debug) but optional steps.
+Here are a few handy but optional steps to help you develop and debug.
 
 ### Auto reload server and use npm scripts
+
+Instead of stopping and restarting your node server at each file update, you can setup a file watcher that will automatically restart the server on updates.
 
 First install `nodemon ` as a dev dependency :
 ```
 npm install nodemon --save-dev
 ```
 
-You can then use `nodemon server.js` to start the server with an auto reload. For convenience, you can define scripts in the `./package.json` file :
+You can then use `nodemon server.js` to start the server with  auto reload. For convenience, you can define scripts in the `./package.json` file :
 ```json
 {
   ...
@@ -166,11 +165,13 @@ You can then use `nodemon server.js` to start the server with an auto reload. Fo
 You can then use `npm run start` to start the normal server or `npm run dev` to start the auto reload dev server.
 It's a good idea to use the npm scripts since :
 - If you leave the project you may forget which command are used to start the server
-- If you are using more complex commands to start the server
+-  You may need more complex commands to start the server in the future
 
 ### Better logging system
 
-It will make debugging easier. Install the package with `npm install morgan`. Then add in `./server.js` :
+A logging system can list the routes that have been called, which can be useful to understand what went wrong during debugging. Also, in the future it may be used in production to store useful information (like wrong logging attempts for example).
+
+Install the package with `npm install morgan`. Then add in `./server.js` :
 
 ```js
 ...
@@ -227,7 +228,7 @@ export default function(app) {
 };
 ```
 
-You will now have JSON returned during errors and 404 instead of an HTML page.
+The server will now return JSON during errors and 404 instead of an HTML page.
 
 ## Links and sources
 

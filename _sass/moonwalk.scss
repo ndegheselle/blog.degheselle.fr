@@ -62,9 +62,9 @@ blockquote {
   border-left: 0.4rem var(--color-middle) solid;
   padding: 1em;
 
-  p { 
+  * { 
     margin: 0;
-    color: var(--color-middle)
+    color: var(--color-middle) !important;
   }
 }
 
