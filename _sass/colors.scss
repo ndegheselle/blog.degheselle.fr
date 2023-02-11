@@ -8,6 +8,14 @@ html {
     --color-front-secondary: #4C5075;
     --color-front: #2B2D42;
 }
+
+// Code highlight need extra love (dark background on light mode)
+.highlight, pre code {
+  background: var(--color-bg-secondary);
+  color: var(--color-front);
+}
+
+
 // -------------- THEME SWITCHER -------------- //
 @mixin dark-appearance {
   html, body  {
@@ -17,4 +25,9 @@ html {
     --color-front-secondary: #C2D3D9;
     --color-front: #EDF2F4;
   };
+
+  .highlight, pre code {
+    background: var(--color-front);
+    color: var(--color-bg);
+  }
 }
