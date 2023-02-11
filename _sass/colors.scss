@@ -11,8 +11,8 @@ html {
 
 // Code highlight need extra love (dark background on light mode)
 .highlight, pre code {
-  background: var(--color-bg-secondary);
-  color: var(--color-front);
+  background: var(--color-front);
+  color: var(--color-bg);
 }
 
 
@@ -27,7 +27,7 @@ html {
   };
 
   .highlight, pre code {
-    background: var(--color-front);
-    color: var(--color-bg);
+    background: var(--color-bg-secondary);
+    color: var(--color-front);
   }
 }
