@@ -143,7 +143,7 @@ Here are a few handy but optional steps to help you develop and debug.
 
 Instead of stopping and restarting your node server at each file update, you can setup a file watcher that will automatically restart the server on updates.
 
-First install `nodemon ` as a dev dependency :
+First install `nodemon` as a dev dependency :
 ```
 npm install nodemon --save-dev
 ```
