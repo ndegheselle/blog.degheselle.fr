@@ -3,6 +3,22 @@ layout: post
 tags: web
 ---
 
+A small post about how to design an authentification system. I will focus more on why things should be done than how technically they should be implemented, since once you understand the ins and outs you can adapt to almost any plateform.
+
+## Why authentification
+
+Before designing something you should understand accuratly why it is intended to do.
+An authentification system is used between a service and a user (which can be an human or an other computer).
+- Service an inside (public information) and an outside (private information)
+- Authentification is the door between the inside and the outside
+- Service can have a window making the inside visible from the outside without the outside being able to modify what is inside.
+
+- Security system is a wall
+    - Authentification is a door
+        - Link between somone in particular outside and something inside
+
+##
+
 What is auth used for :
 
 - Authentification is what make the difference between something public and private
@@ -10,9 +26,9 @@ What is auth used for :
 
 How it is achieved :
 - User pass credentials to the service
-    - Either with an login / password
+    - Either with a couple login / password
     - Or directly with a key that is used both to identify and validate the connection
-        - Though, login / password are way more human friendly since it is easier remember two words than a set of randoms gibrish
+        - Though, login / password are way more human friendly since it is easier to remember two words than a set of randoms gibrish
 - Service check that the credentials are valid
     - Can be done various way (stored credentials on the server side, digital signatures, ...)
 
@@ -41,3 +57,9 @@ Differents types of risks :
 Auth should not be too hard to use or it will either :
     - Lead users to bypass the security making it useless
     - Users will stop using the service, simply because it is not convenient (unless they have to)
+
+- Simplicity is key, the more complex a system is the more likely it is to have exploits
+- Use existing protocols, frameowork and implementation.
+    - Apes strong together : community find, community fix. Profit from experiences of others, whether it be from the past, present and future
+    - No, creating your own encryption system for every request wont be more secure than HTTPS (it is a good exercice to learn how it is implemented though), Security through obscurity is the worst mind set you can have
+    - Still good to do it to learn and have a solid grasp on how all of this work
