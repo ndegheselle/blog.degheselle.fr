@@ -8,7 +8,7 @@ navbar_entries:
 project_entries:
   - title: Lightcloud
     url: https://github.com/ndegheselle/lightcloud
-    desc: A sort of lightweight alternative to nextcloud.
+    desc: A proof of concept website with a modern, fast and flexible tech stack.
 
 # old_project_entries:
 
