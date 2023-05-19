@@ -29,3 +29,12 @@ Solution :
 - Is shared between all the relevent steps (severals context can exists independently)
 - The step only have access to the relevant parts of the context (this is where interfaces are usefull)
 - In more complex case the context may have a tree of the different steps, the step can then navigate this tree if it need access to previous or next information
+
+# What this problem is about
+
+How should an app be organized
+What are the mains problematics
+- Handling updates
+- Handling remove
+
+Why is it relevant with the previous problems ? Because the solutions are really similars, creating defined bricks with limited functionnalities and how do you assemble these bricks.
