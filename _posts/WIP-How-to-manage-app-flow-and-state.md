@@ -38,3 +38,5 @@ What are the mains problematics
 - Handling remove
 
 Why is it relevant with the previous problems ? Because the solutions are really similars, creating defined bricks with limited functionnalities and how do you assemble these bricks.
+
+Should extend this to "Basic problematics and solution to setup an application"
