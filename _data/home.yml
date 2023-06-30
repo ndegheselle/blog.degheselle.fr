@@ -3,7 +3,7 @@ navbar_entries:
     url: about
 
   - title: blog
-    url: blog
+    url: posts
 
 project_entries:
   - title: Lightcloud
