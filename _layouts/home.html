@@ -8,9 +8,9 @@ layout: default
   <div class="dashed"></div>
 {% endif %}
 
-  <h1>{{ site.surname }} <span>{{ site.name }}</span></h1>
+  <h1>{{ site.data.home.surname }} <span>{{ site.data.home.name }}</span></h1>
   {% if site.theme_config.show_description == true %}
-    <p>{{ site.description }}</p>
+    <p>{{ site.data.home.description }}</p>
   {% endif %}
 </header>
 

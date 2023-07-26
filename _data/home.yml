@@ -1,3 +1,10 @@
+title: Nicolas de gheselle
+description: > # description of the site (multiple lines allowed)
+  Some projects I am working on and a blog for future me.
+
+name: de gheselle
+surname: Nicolas
+
 navbar_entries:
   - title: about
     url: about
