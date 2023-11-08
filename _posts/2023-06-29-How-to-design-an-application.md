@@ -48,7 +48,7 @@ And the following code to treat it :
 function businessLogic()
 {
     // Check if file exist
-    if (!file.exsist(this.UI.filePath)) {
+    if (!file.exist(this.UI.filePath)) {
         this.window.alert("Error, the file doesn't exist !");
         return;
     }
@@ -65,7 +65,7 @@ function businessLogic()
     this.UI.setLoading(0.9, "Saving the file ...");
 
     // Finished ! Save the file
-    if (file.exsist(this.outputPath))
+    if (file.exist(this.outputPath))
     {
         // Ask a user confirmation
         if (!this.window.confirm("The output file already exist, do you want to overwrite it ?"))
@@ -82,7 +82,7 @@ The first thing you can do is to separate the logic from the view context by pas
 function businessLogic(filePath: string, options: CsvImportOptions)
 {
     // Check if file exist
-    if (!file.exsist(filePath)) {
+    if (!file.exist(filePath)) {
         this.window.alert("Error, the file doesn't exist !");
         return;
     }
@@ -99,7 +99,7 @@ function businessLogic(filePath: string, options: CsvImportOptions)
     this.UI.setLoading(0.9, "Saving the file ...");
 
     // Finished ! Save the file
-    if (file.exsist(this.outputPath))
+    if (file.exist(this.outputPath))
     {
         // Ask a user confirmation
         if (!this.window.confirm("The output file already exist, do you want to overwrite it ?"))
@@ -113,7 +113,7 @@ This already makes the function easier to read, but there are still some referen
 function businessLogic(filePath: string, options: CsvImportOptions)
 {
     // Check if file exist
-    if (!file.exsist(filePath)) {
+    if (!file.exist(filePath)) {
         this.window.alert("Error, the file doesn't exist !");
         return;
     }
@@ -130,7 +130,7 @@ function businessLogic(filePath: string, options: CsvImportOptions)
     onProgressEvent.emit(0.9, "Saving the file ...");
 
     // Finished ! Save the file
-    if (file.exsist(this.outputPath))
+    if (file.exist(this.outputPath))
     {
         // Ask a user confirmation
         if (!this.window.confirm("The output file already exist, do you want to overwrite it ?"))
@@ -146,7 +146,7 @@ The alert part can easily be fixed with an `exception` :
 ```ts
 ...
 // Check if file exist
-if (!file.exsist(filePath)) {
+if (!file.exist(filePath)) {
     throw new Exception("Error, the file doesn't exist !");
 }
 ...
@@ -161,7 +161,7 @@ Separate the function in several smaller functions :
 function loadFile(filePath: string, options: CsvImportOptions)
 {
     // Check if file exist
-    if (!file.exsist(filePath)) {
+    if (!file.exist(filePath)) {
         throw new Exception("Error, the file doesn't exist !");
     }
 
@@ -177,7 +177,7 @@ function loadFile(filePath: string, options: CsvImportOptions)
     onProgressEvent.emit(0.9, "Saving the file ...");
 
     // Finished ! Save the file
-    if (file.exsist(this.outputPath))
+    if (file.exist(this.outputPath))
     {
         return false;
     }
@@ -202,7 +202,7 @@ The other solution is to pass a callback :
 function loadFile(filePath: string, options: CsvImportOptions, callbackConfirm: function)
 {
     // Check if file exist
-    if (!file.exsist(filePath)) {
+    if (!file.exist(filePath)) {
         throw new Exception("Error, the file doesn't exist !");
     }
 
@@ -218,7 +218,7 @@ function loadFile(filePath: string, options: CsvImportOptions, callbackConfirm: 
     onProgressEvent.emit(0.9, "Saving the file ...");
 
 // Finished ! Save the file
-    if (file.exsist(this.outputPath))
+    if (file.exist(this.outputPath))
     {
         if (!callbackConfirm("The output file already exist, do you want to overwrite it ?"))
             return;
