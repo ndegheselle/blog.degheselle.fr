@@ -1,13 +1,34 @@
 # How to write nice code
-- Readability Easily readable by someone else
-    - Good naming, add comments then needed
-    - Hard to get because you need peers to feedback yourself
-- Flexibility, goes hand in hand with insight
-    - Don't try to make everything generic but try to anticipate what the futurs hold
-- Communication
-    - Documentation (how to update && &how to use)
-    - What (this project resources), where (are theses resources)
-    - Why (these design choices have been made), How (should be in the code, that's readability)
+
+Making sure that other peoples can understand the code and it's flow easily. Allow for :
+- Colaborate with other peoples
+In the future make it easier to :
+- Maintain
+- Debug
+
+Readability :
+- Naming things so that it's standard
+    - Make sense syntaxically in it's context (you can read the code as a somewhat correct sentence)
+    - No excuses to make names as little as possible with autocomplete
+- Add comments then needed
+
+Exemples :
+
+```C#
+// Number of time I have seen things like that ...
+Popup.ShowPopup(); -> Popup.Show();
+// If object not check valid ? VS If object is invalid.
+// If yourself can't make sense of it while reading it why somone else would
+if(!Object.CheckValid()) -> if(Object.IsInvalid())
+```
+
+Flexibility :
+- Don't try to make everything generic but try to anticipate what the futurs hold
+Communication
+- Documenting (how to update && how to use)
+- What (are this project resources), where (are theses resources)
+- Why (these design choices have been made)
+- The How aspect should be covered by the code in itself
 
 ## Organisation code
 
