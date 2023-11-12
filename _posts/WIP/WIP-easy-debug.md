@@ -1,0 +1,1 @@
+How to make it easier to debug and how I wish app I debug would be written.
