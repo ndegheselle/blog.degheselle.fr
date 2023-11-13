@@ -34,7 +34,7 @@ Readability make it easier for :
 - Maintenability (easy to update over time)
 - Debugging (fix issues in the code)
 
-# Organisation code
+## More about separation of concern
 
 A well organised code allow for readability on a project level.
 
@@ -48,12 +48,13 @@ In addition, you may want to separate everything that is reusable in the project
 - Components : every visual elements that are used in more than one view
 - Base : every element of logic that is used in more than one place
 
-That's MVC with extra steps. But why is it so important ? Separation improve readability and maintenability
+That's MVC with extra steps. But why is it so important ? Separation improve readability and maintenability,
+- If one bit of code is doing several things at once it will be harder to understand
+- Seems easy to do but, separation can be pretty hard to achieve with complexe logic that interact a lot with the UI (and that's why binding exsist and is such a huge thing)
 
-# Spread the data, Kouhei !
+## Spread the data, Kouhei !
 
 Dilema : share data between parts of your app. Solutions :
-- Interfaces
 - Stores or State management
 - Singletons
 - Don't make one giant static object that old everything
