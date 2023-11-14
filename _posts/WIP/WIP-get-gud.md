@@ -1,3 +1,10 @@
+All the importants points to write good code
+- That hopefull will trigger a "Oh, that's neat"
+- That will last
+- That peoples want to work with
+
+Also give leads on how to start a new project or how to work on / improve existing code.
+
 # How to write nice code
 
 Making sure that other peoples can understand the code and it's flow easily.
