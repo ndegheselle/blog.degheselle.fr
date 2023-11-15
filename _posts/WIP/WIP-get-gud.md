@@ -61,7 +61,9 @@ That's MVC with extra steps. But why is it so important ? Separation improve rea
 
 ## Spread the data, Kouhei !
 
-Dilema : share data between parts of your app. Solutions :
+Tips on how to share data between differents parts of the app. Then you differents components with parent passing data to childs, sometimes you want two distants childs (with different parents) to share data. If you do it wrong you can either end up with a big static context object, which is really bad for maintenability (thigh coupling, a lot of different properties that are not linked together in the same place, ...).
+
+Solutions :
 - Stores or State management
 - Singletons
-- Don't make one giant static object that old everything
+- Don't make one giant static object that old everything, use interfaces and contract at least if you do that
