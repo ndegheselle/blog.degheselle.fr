@@ -61,9 +61,8 @@ That's MVC with extra steps. But why is it so important ? Separation improve rea
 
 ## Spread the data, Kouhei !
 
-Tips on how to share data between differents parts of the app. Then you differents components with parent passing data to childs, sometimes you want two distants childs (with different parents) to share data. If you do it wrong you can either end up with a big static context object, which is really bad for maintenability (thigh coupling, a lot of different properties that are not linked together in the same place, ...).
+Tips on how to share data between differents parts of the app. Then you have differents components with parent passing data to childs, sometimes you want two distants childs (with different parents) to share data. What you want to avoid is having one global place with a bunch of different properties that are not linked together, which is bad for maintenability and readability.
 
-Solutions :
-- Stores or State management
-- Singletons
-- Don't make one giant static object that old everything, use interfaces and contract at least if you do that
+Most of the time the solution is setting up a store / state management system. That mean creating singleton classes (so with an unique instance accross the project) which implement interfaces, with that components accessing the store will have only access to the data they need (reducing coupling). The stores can also be used along with events in order to keep the whole app up to date.
+
+In general components should only have access to the data they need, nothing more (which help to create generic components), that way you can pass the data from the parent and only the parent have to know how to get this data.
