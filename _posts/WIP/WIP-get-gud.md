@@ -1,3 +1,5 @@
+# How to write nice code
+
 All the importants points to write good code
 - That hopefull will trigger a "Oh, that's neat"
 - That will last
@@ -5,9 +7,9 @@ All the importants points to write good code
 
 Also give leads on how to start a new project or how to work on / improve existing code.
 
-# How to write nice code
+## It's no good if nobody can read it
 
-Making sure that other peoples can understand the code and it's flow easily.
+Making sure that other peoples can understand the code and its flow easily.
 How you can achieve that  :
 - Use standard, from you team or global standards
 - Naming so that code make sense syntaxically in it's context (you can read the code as a somewhat correct sentence)
@@ -36,7 +38,7 @@ if(!Object.CheckValid()) -> if(Object.IsInvalid())
 public void Show();
 ```
 
-Readability make it easier for :
+Readability aslo improve :
 - Flexibility (adapt the code without redesiging everything)
 - Maintenability (easy to update over time)
 - Debugging (fix issues in the code)
