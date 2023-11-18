@@ -9,18 +9,18 @@ Also give leads on how to start a new project or how to work on / improve existi
 
 ## It's no good if nobody can read it
 
-Making sure that other peoples can understand the code and its flow easily.
+Making sure that other peoples can understand the code and its flow (how and when the code is going from A to B) easily.
 How you can achieve that  :
-- Use standard, from you team or global standards
-- Naming so that code make sense syntaxically in it's context (you can read the code as a somewhat correct sentence)
+- Use standards, from you team or global standards
+- Naming so that code make sense syntaxically in its context (you can read the code as a somewhat correct sentence)
 - Add comments then needed, to explain why and sometime how (rarely since naming should answer how, but sometime that's not that easy)
 - Separation of concern
 - But try to not nest too much since it's hurt flow readability
-In addition to the code readability, communication about the project is also a very important :
-- Documenting (how to update && how to use)
+In addition to the code readability, communication about the project is also very important :
+- Documenting (how to run, update and use)
 - What (are this project resources), where (are theses resources)
 - Why (these design choices have been made)
-- The How aspect should be covered by the code in itself
+- The How aspect should be covered by the code in itself (thats readability)
 
 Aside from that some other points to keep in mind :
 - Don't try to make everything generic but try to anticipate what the futurs hold
@@ -37,7 +37,6 @@ if(!Object.CheckValid()) -> if(Object.IsInvalid())
 // If the code come from a stackoverflow question you can add the link in a comment
 public void Show();
 ```
-
 Readability aslo improve :
 - Flexibility (adapt the code without redesiging everything)
 - Maintenability (easy to update over time)
@@ -45,7 +44,7 @@ Readability aslo improve :
 
 ## More about separation of concern
 
-A well organised code allow for readability on a project level.
+A well organised code allow for readability on the project level.
 
 Then you start to think about separation of concern you end up with something like :
 - UI / views : visuals parts of the app, use an exemple here to show why its different of the components
