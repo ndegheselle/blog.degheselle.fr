@@ -3,34 +3,81 @@ layout: post
 tags: software
 ---
 
-# How to design an application
+# How to write nice code
 
-Or anything that has an interface. I am writing this after noticing on multiple occasions that creating an application is easy, creating one that work is harder and one that simply work is a challenge. The goal there is to explain the mindset you have to get to create an application that can easily be understood, something that will be be worthy of a "Huh, neat".
+All the importants points to write good code
+- That hopefull will trigger a "Oh, that's neat"
+- That will last
+- That peoples wants to work with
 
-Someone, which can also be the creator itself after a pause, checking an existing application is there either to :
+In other words it should be easy to :
 1. Improve or fix the existing
 2. Add new things
-3. Take a part of this app to reuse it in another project
+3. Take a part of the app to reuse it in another project
 
-All of these require a certain understanding of the existing code and workflow. This can be eased with clear separation of concern, naming convention and so on, a lot of documentation on how to write good code is around there (I particurlarly like [CodeAesthetic](https://www.youtube.com/@CodeAesthetic) that have really good points).
+## It's no good if nobody can read it
 
-How can we make it as easy as possible ?
+Making sure that other peoples can understand the code and its flow (how and when the code is going from A to B) easily.
+How you can achieve that  :
+- Use standards, from you team or global standards, and stick with it
+- Naming so that code make sense syntaxically in its context (you can read the code as a somewhat correct sentence)
+- Add comments then needed, to explain why these choices, how that may be fixed, why you haven't done
+- Separation of concern
+- But try to not nest too much since it's hurt flow readability
+In addition to the code readability, communication about the project is also very important :
+- Documenting (how to run, update and use)
+- What (are this project resources), where (are theses resources)
+- Why (these design choices have been made)
+- The How aspect should be covered by the code in itself (thats readability)
 
-## Make the code generic but not too much, most importantly don't overthink it
+Exemples :
+```C#
+// Number of time I have seen things like that ...
+Popup.ShowPopup(); -> Popup.Show();
+// If object not check valid ? VS If object is invalid.
+// If yourself can't make sense of it while reading it why somone else would
+if(!Object.CheckValid()) -> if(Object.IsInvalid())
 
-Generic is good and you should do it then you can. Then you add a functionality always think "Does it make sense outside of this project" and if yes, just put it either in a completely different project or at least a specific folder / namespace (for example `base`, which convey the idea that it's a 'base' brick that can be used to build a lot of things).
+// If the code come from a stackoverflow question you can add the link in a comment
+public void Show();
+```
+Readability aslo improve :
+- Flexibility (adapt the code without redesiging everything)
+- Maintenability (easy to update over time)
+- Debugging (fix issues in the code)
 
-But keep in mind that specialized code is simpler to write and understand. Don't get me wrong, well done generic code can be really easy to understand but it's way easier to create accessible specialized code. It's all come down to how much time you have and how you should use it, do you prefer perfecting a simpler specific piece of code or producing a more complex generic one that *may* be used.
+Aside from that some other points to keep in mind :
+- Don't try to make everything generic but try to anticipate what the futurs hold
+- It's ok to rewrite / refractor existing code multiple times
 
-## Being consistent is easier that being perfect and much more beneficial.
+## More about separation of concern
 
-From what I have seen the more complex it goes, the more opinion related it will become. In other word the more complex you go the more choices you have to take since there is rarely one way to do something, and even more rarely one good way. Those choices will be related to your experience and finds, and sometime it will not be easilly understable by someone else whatever you do, to make the life of everyone easier you should be as consistent as possible.
+A well organised code allow for readability on the project level.
 
-For example, working with asynchronous programming you have the choice to either go with events or promises (or something similar depending on your programming language). None of this solution is better than the other, you just have to choose and stick with one.
+Then you start to think about separation of concern you end up with something like :
+- UI / views : visuals parts of the app, use an exemple here to show why its different of the components
+- Buisness / logic / controler : control part of the app, buisness is more clear to me (it contain the main code of what the app do)
+- Data / model : all the objects, classes and enumerations used in the app.
+- Repositories : depending on the orm and how you are loading data this can be replaced directly by the data folder
 
-> Always write comments about what you were thinking then codding, where you wanted to go, how you think this can be fixed, why you made the choice to not make this generic or otherwise, and so on. Explaining why something hacky has been put in place can save a lot of time for someone reading your code while thinking "Well that can easily be fixed, why didn't he ?". To separate these kind of comments from simple logic description you can use tags like NOTE, OPTIMIZE, TODO, HACK, XXX, FIXME and BUG.
+In addition, you may want to separate everything that is reusable in the project. And heck, why not making it a separate project at some point ?
+- Components : every visual elements that are used in more than one view
+- Base : every element of logic that is used in more than one place
 
-## Let have a simple example
+That's MVC with extra steps. But why is it so important ? Separation improve readability and maintenability,
+- If one bit of code is doing several things at once it will be harder to understand
+- Seems easy to do but, separation can be pretty hard to achieve with complexe logic that interact a lot with the UI (and that's why binding exsist and is such a huge thing)
+
+## Spread the data, Kouhei !
+
+Tips on how to share data between differents parts of the app. Then you have differents components with parent passing data to childs, sometimes you want two distants childs (with different parents) to share data. What you want to avoid is having one global place with a bunch of different properties that are not linked together, which is bad for maintenability and readability.
+
+Most of the time the solution is setting up a store / state management system. That mean creating singleton classes (so with an unique instance accross the project) which implement interfaces, with that components accessing the store will have only access to the data they need (reducing coupling). The stores can also be used along with events in order to keep the whole app up to date.
+
+In general components should only have access to the data they need, nothing more (which help to create generic components), that way you can pass the data from the parent and only the parent have to know how to get this data.
+
+
+# Let have a simple example
 
 Imagine you have an existing application that imports a CSV file, read its content and then save it to a json file.
 
