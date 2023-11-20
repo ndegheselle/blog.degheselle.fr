@@ -279,3 +279,9 @@ function saveFile(filePath: string) { ... }
 If the callback becomes more complex and need more parameters, the best is to create a generic interface to handle that (for example `IDialog`).
 
 What we finish with is looking a lot like a Controller part of an MVC and the MVC is there to solve most of those problems. Still, I think it's easier to understand why it's a good solution by trying to solve these problems yourself and hand up with something similar to the MVC.
+
+## Links and sources
+
+Optionals : 
+- [How principled coders outperform the competition](https://www.youtube.com/watch?v=q1qKv5TBaOA)
+- [SOLID](https://en.wikipedia.org/wiki/SOLID)
