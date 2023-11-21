@@ -31,16 +31,18 @@ In addition to the code readability, communication about the project is also ver
 - The How aspect should be covered by the code in itself (thats readability)
 
 Exemples :
-```C#
+
+```Csharp
 // Number of time I have seen things like that ...
 Popup.ShowPopup(); -> Popup.Show();
 // If object not check valid ? VS If object is invalid.
 // If yourself can't make sense of it while reading it why somone else would
 if(!Object.CheckValid()) -> if(Object.IsInvalid())
 
-// If the code come from a stackoverflow question you can add the link in a comment
+// If the code is from a stackoverflow question you can add the link in a comment
 public void Show();
 ```
+
 Readability aslo improve :
 - Flexibility (adapt the code without redesiging everything)
 - Maintenability (easy to update over time)
